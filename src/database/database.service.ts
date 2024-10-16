@@ -144,4 +144,7 @@ export class DatabaseService {
     sensorDataByType(roomId, type): Promise<any> {
         return this.clickhouseService.getSensorDataByType(roomId, type)
     }
+    async userEmails(): Promise<User[]> {
+        return this.userRepository.find({select: ['email','id']})
+    }
 }

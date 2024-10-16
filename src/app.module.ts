@@ -8,10 +8,10 @@ import {User} from "./database/entities/user";
 import {Room} from "./database/entities/room";
 import {RoomConfig} from "./database/entities/room-config";
 import {SensorData} from "./database/entities/sensor-data";
-import {ClickHouseModule} from "@depyronick/nestjs-clickhouse";
 import {ClickModule} from "./database/clickHouse/clickhouse.module";
 import {ScheduleModule} from "@nestjs/schedule";
 import {SensorConfig} from "./database/entities/sensor-config";
+import {MetricModule} from "./metric/metric.module";
 
 
 @Module({
@@ -28,7 +28,8 @@ import {SensorConfig} from "./database/entities/sensor-config";
         ScheduleModule.forRoot(),
         DatabaseModule,
         AuthenticationModule,
-        ClickModule
+        ClickModule,
+        MetricModule
     ],
     controllers: [AppController],
     providers: [AppService],

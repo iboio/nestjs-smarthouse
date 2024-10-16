@@ -8,12 +8,10 @@ import * as timers from "timers";
 export class DatabaseController {
     constructor(private readonly databaseService: DatabaseService,) {
     }
-
-    @Get('/test/test1')
-    async test(): Promise<SensorData> {
-        return this.databaseService.sensorData(1, 'chemical')
+    @Get('email')
+    async test1(): Promise<any> {
+        return await this.databaseService.userEmails()
     }
-
     @Get('/:id')
     async allRoomData(@Param('id') userId): Promise<Room[]> {
         return await this.databaseService.allRoomData(userId)
@@ -21,7 +19,6 @@ export class DatabaseController {
 
     @Get('/:id/:roomId')
     async roomData(@Param('id') userId, @Param('roomId') roomId): Promise<any> {
-        //return await this.databaseService.roomData(userId, roomId)
         return await this.databaseService.sensorClickhouse(userId, roomId)
     }
 

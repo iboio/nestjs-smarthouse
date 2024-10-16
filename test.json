@@ -1,0 +1,7 @@
+{
+  "database":{
+    "trackname_db":"trackname.db",
+    "trackname_table":"trackname",
+
+  }
+}

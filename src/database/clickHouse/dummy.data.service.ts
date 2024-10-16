@@ -27,21 +27,20 @@ export class DummyDataService {
                        END                        as type,
 
                    ${min} + rand() % ${max - min} as value,
-
                    CASE
                        WHEN '${queryTimeType}' = 'second'
-                           THEN now() - toIntervalSecond(rand() % ${time + 1})
-                       WHEN '${queryTimeType}' = 'hour'
-                           THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60)
-                       WHEN '${queryTimeType}' = 'day'
-                           THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60 * 24)
+                           THEN now() - toIntervalSecond(rand() %
+                                                         ${time + 1})
+                       WHEN '${queryTimeType}' = 'hour' THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60)
+                       WHEN '${queryTimeType}' = 'day' THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60 * 24)
                        WHEN '${queryTimeType}' = 'week'
                            THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60 * 24 * 7)
                        WHEN '${queryTimeType}' = 'month'
                            THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60 * 24 * 30)
                        WHEN '${queryTimeType}' = 'year'
                            THEN now() - toIntervalSecond(rand() % ${time} * 60 * 60 * 24 * 365)
-                       END                        as createAt
+                       END
+                                                  as createAt
         `;
         if (instant) {
             query += `FROM numbers(${number})`

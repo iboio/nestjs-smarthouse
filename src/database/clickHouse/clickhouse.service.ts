@@ -24,7 +24,6 @@ export class ClickhouseService {
                                  FROM iboio.sensorData
                                  WHERE room_id = ${roomId}
                                  ORDER BY createdAt DESC`
-
         return await this.iboio.queryPromise<SensorData>(sensorDataQuery);
     }
 
@@ -35,7 +34,7 @@ export class ClickhouseService {
                        WHERE room_id = ${roomId}
                          AND type = '${type}'
                          and now() - toIntervalSecond(30) < createdAt
-                       ORDER BY createAt`
+                       ORDER BY createdAt`
         const returnData = {
             value: [],
             labels: []
