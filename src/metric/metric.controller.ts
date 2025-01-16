@@ -16,13 +16,13 @@ export class MetricController {
     @Get('/open')
     test() {
         this.metricService.testMqtt();
-        return "siktir"
+        return "open"
     }
 
     @Get('/close')
     close() {
         this.metricService.close();
-        return "siktir"
+        return "close"
     }
 
     @Post('/lampcontrol/')
